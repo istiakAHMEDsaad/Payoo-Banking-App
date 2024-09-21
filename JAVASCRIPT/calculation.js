@@ -13,6 +13,11 @@ document
     const presentMoneyFloat = parseFloat(
       presentMoney.replace(/[^0-9.-]+/g, '')
     );
+
+    if(isNaN(addMoney)){
+        alert('Please enter a valid number');
+        return;
+    }
     if (checkPin === '1234') {
       // console.log(`input money ${typeof parseInt(addMoney)} \nold balance ${typeof parseInt(presentMoney)}`);
       const newBalance = checkMoneyFloat + presentMoneyFloat;
@@ -41,6 +46,10 @@ document
       presentMoney.replace(/[^0-9.-]+/g, '')
     );
 
+    if(presentMoneyFloat < cashoutInputFloat){
+        alert('Insufficient money');
+        return;
+    }
     if (cashoutPin === '1234') {
       const newBalance = presentMoneyFloat - cashoutInputFloat;
 
